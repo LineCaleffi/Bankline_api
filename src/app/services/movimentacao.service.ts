@@ -15,6 +15,6 @@ export class MovimentacaoService {
   }
 
   create(movimentacao:any): Observable<any>{
-    return this.httpCliente.get(`${baseUrl}/movimentacao`, movimentacao);
+    return this.httpCliente.post(`${baseUrl}/movimentacao`, movimentacao);
   }
 }

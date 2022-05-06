@@ -8,7 +8,7 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
   styleUrls: ['./movimentacao-new.component.css']
 })
 export class MovimentacaoNewComponent implements OnInit {
-  dataHora:any;
+  hora:any;
   descricao:any;
   valor:any;
   tipo:any;
@@ -41,7 +41,7 @@ export class MovimentacaoNewComponent implements OnInit {
       descricao:this.descricao,
       tipo:this.tipo,
       idConta:this.correntista.id,
-      dataHora:this.dataHora
+      hora:this.hora
 
     };
     console.log(movimentacao);
@@ -54,5 +54,4 @@ export class MovimentacaoNewComponent implements OnInit {
           console.log(error);
         });
   }
-
 }

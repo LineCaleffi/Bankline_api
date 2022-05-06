@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CorrentistaService } from 'src/app/services/correntista.service';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
@@ -25,5 +26,4 @@ export class MovimentacaoListComponent implements OnInit {
       }
     );
   }
-
 }
