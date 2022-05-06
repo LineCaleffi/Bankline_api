@@ -13,4 +13,8 @@ export class MovimentacaoService {
   list(): Observable<any>{
     return this.httpCliente.get(`${baseUrl}/movimentacao`);
   }
+
+  create(movimentacao:any): Observable<any>{
+    return this.httpCliente.get(`${baseUrl}/movimentacao`, movimentacao);
+  }
 }

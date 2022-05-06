@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -24,7 +25,8 @@ registerLocaleData(localePt);
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CurrencyMaskModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue:'pt-BR'}
