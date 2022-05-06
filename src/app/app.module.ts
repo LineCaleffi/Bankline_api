@@ -10,6 +10,9 @@ import { MovimentacaoNewComponent } from './components/movimentacao-new/moviment
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [

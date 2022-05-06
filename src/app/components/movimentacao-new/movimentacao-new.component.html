@@ -1,1 +1,47 @@
-<p>movimentacao-new works!</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-6"> Movimentações</h1>
+    <p class="lead-1">Inclusão de uma nova movimentação</p>
+    <hr class="my-2"> <!-- deixa uma linha embaico do subtitle-->
+
+    <form class="row g-2">
+      <div class="col-md-3">
+        <label for="iData" class="form-label">Data: </label>
+        <input type="date" class="form-control" id="iData"> <!-- inclui um input com o calendário-->
+      </div>
+
+      <div class="col-md-6">
+        <label for="iCorrentista" class="form-label">Correntista</label>
+        <select id="iCorrentista" class="form-select">
+          <option *ngFor="let c of correntistas" [ngValue]="c">
+            {{c.cpf}} - {{c.nome}}</option>
+        </select>
+      </div>
+
+      <div class="col-9">
+        <label for="iDescricao" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="iDescricao" placeholder="Informe uma descrição">
+      </div>
+
+      <!-- Para selecionar se o tipo é Receita ou Despesa-->
+      <div class="col-md-5">
+        <label for="iTipo" class="form-label">Tipo Movimentação</label>
+        <select id="iTipo" class="form-select">
+          <option selected>RECEITA</option>
+          <option>DESPESA</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="iValor"  class="form-label">R$ Valor</label>
+        <input type="text" class="form-control" id="iValor">
+      </div>
+
+      <!-- Botões-->
+      <div class="d-grid gap-2 d-md-flex ">
+          <button class="btn btn-outline-primary me-md-2" type="button">Confirmar</button>
+          <a routerLink="/movimentacao" class="btn btn-outline-secondary">Cancelar</a>
+        </div>
+      </form>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CorrentistaService } from 'src/app/services/correntista.service';
+import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
   selector: 'app-movimentacao-new',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovimentacaoNewComponent implements OnInit {
 
-  constructor() { }
+  correntistas:any;
+  constructor(private movService : MovimentacaoService,
+              private correntistaService : CorrentistaService) { }
 
   ngOnInit(): void {
+    this.exibirCorrentistas();
+  }
+
+  exibirCorrentistas(): void {
+    this.correntistaService.list()
+      .subscribe(
+        data => {
+          this.correntistas = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

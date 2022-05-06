@@ -4,9 +4,11 @@ import { MovimentacaoListComponent } from './components/movimentacao-list/movime
 import { MovimentacaoNewComponent } from './components/movimentacao-new/movimentacao-new.component';
 
 const routes: Routes = [
-  {path:'movimentacoes', component: MovimentacaoListComponent},
-  {path:'movimentações-new', component: MovimentacaoNewComponent},
-  {path:'', redirectTo: 'movimentacoes', pathMatch:'full'},
+  {path:'movimentacao', component: MovimentacaoListComponent},
+  {path:'movimentacao-new', component: MovimentacaoNewComponent},
+  {path:'', redirectTo: 'movimentacao', pathMatch:'full'},
+//{path:'correntista', component: },
+
 ];
 
 @NgModule({
