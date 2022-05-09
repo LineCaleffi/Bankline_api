@@ -3,8 +3,19 @@
     <h1 class="display-6">Movimentação</h1>
     <p class="lead-1">Lista das movimentações</p>
     <hr class="my-2">
-    <a class="btn btn-success btn-sm" routerLink="/movimentacao-new">Nova Movimentação</a>
-    <a class="btn btn-success btn-sm" routerLink="/correntistas">Correntistas</a>
+    <div class="input-group">
+      <label for="iCorrentista">.</label>
+      <!-- buscar por correntista -->
+      <select  id="iCorrentista" [(ngModel)]="correntista" class="form-select">
+        <option *ngFor="let c of correntistas" [ngValue]="c" >{{c.cpf}}-{{c.nome}}</option>
+      </select>
+
+      <!-- botão buscar que lista todas as movimentações por ID da conta -->
+      <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button" (click)="listMovimentacoes()">Buscar</button>
+
+      <a class="btn btn-success btn-sm" routerLink="/movimentacao-new">Nova Movimentação</a>
+      <a class="btn btn-success btn-sm" routerLink="/correntistas">Correntistas</a>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>

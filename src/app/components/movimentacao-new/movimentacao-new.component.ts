@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CorrentistaService } from 'src/app/services/correntista.service';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
@@ -16,7 +17,8 @@ export class MovimentacaoNewComponent implements OnInit {
   correntistas:any;
   correntista:any;
   constructor(private movService : MovimentacaoService,
-              private correntistaService : CorrentistaService) { }
+              private correntistaService : CorrentistaService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.exibirCorrentistas();
@@ -49,6 +51,7 @@ export class MovimentacaoNewComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          this.router.navigate(['/movimentacao']); //após salvar volta para a tela inicial
         },
         error => {
           console.log(error);

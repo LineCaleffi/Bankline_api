@@ -10,8 +10,8 @@ export class MovimentacaoService {
 
   constructor(private httpCliente : HttpClient) { }
 
-  list(): Observable<any>{
-    return this.httpCliente.get(`${baseUrl}/movimentacao`);
+  findByIdConta(idConta : any): Observable<any>{
+    return this.httpCliente.get(`${baseUrl}/movimentacao/${idConta}`);
   }
 
   create(movimentacao:any): Observable<any>{

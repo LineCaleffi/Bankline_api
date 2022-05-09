@@ -8,15 +8,20 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
   styleUrls: ['./movimentacao-list.component.css']
 })
 export class MovimentacaoListComponent implements OnInit {
+  correntistas:any;
+  correntista:any;
   movimentacoes:any;
-  constructor(private movService : MovimentacaoService) { }
+  constructor(private movService : MovimentacaoService,
+              private correntistaService : CorrentistaService) { }
 
   ngOnInit(): void {
-    this.listMovimentacoes();
+    //this.listMovimentacoes();
+    this.exibirCorrentistas();
   }
 
   listMovimentacoes():void{
-    this.movService.list().subscribe(
+    // lista todas as movimentações por ID da conta
+    this.movService.findByIdConta(this.correntista.id).subscribe(
       data =>{
         this.movimentacoes=data;
         console.log(data);
@@ -25,5 +30,17 @@ export class MovimentacaoListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  exibirCorrentistas(): void {
+    this.correntistaService.list()
+      .subscribe(
+        data => {
+          this.correntistas = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }

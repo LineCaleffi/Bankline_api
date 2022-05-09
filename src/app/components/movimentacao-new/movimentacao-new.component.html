@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron"> <!-- Indica uma caixa grande para chamar a atenção extra para algum conteúdo -->
       <h1 class="display-6">Movimentação</h1>
       <p class="lead-1">Inclusão de uma nova movimentação</p>
-      <hr class="my-2">
+      <hr class="my-2"> <!-- Adiciona uma linha abaixo para divisão -->
       <div class="row g-2">
           <div class="col-md-3">
             <label for="iData" class="form-label">Data</label>
@@ -10,6 +10,7 @@
           </div>
           <div class="col-md-6">
             <label for="iCorrentista" class="form-label">Correntista</label>
+            <!--  ng-model funciona como um canal entre a nossa view e o form  (salva em correntista) -->
             <select id="iCorrentista" [(ngModel)]="correntista" class="form-select">
               <option *ngFor="let c of correntistas" [ngValue]="c">{{c.cpf}}-{{c.nome}}</option>
             </select>
@@ -27,10 +28,12 @@
           </div>
           <div class="col-md-4">
             <label for="iValor"  class="form-label">R$ Valor</label>
-            <input type="text" [(ngModel)]="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" class="form-control" id="iValor">
+            <!-- Currency Mask: É uma máscara para moeda, ou seja, formata o valor para R$0.000.000.000.000,00 -->
+            <input type="text" [(ngModel)]="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.',
+              decimal: ',' }" class="form-control" id="iValor">
           </div>
           <div class="d-grid gap-2 d-md-flex ">
-              <button class="btn btn-outline-primary me-md-2" (click)="save()" type="button">Confirmar</button>
+              <button class="btn btn-outline-primary me-md-2" (click)="save()" type="button" >Confirmar</button>
               <a routerLink="/movimentacao" class="btn btn-outline-secondary">Cancelar</a>
             </div>
        </div>
