@@ -12,10 +12,10 @@
 
       <!-- botão buscar que lista todas as movimentações por ID da conta -->
       <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button" (click)="listMovimentacoes()">Buscar</button>
-
-      <a class="btn btn-success btn-sm" routerLink="/movimentacao-new">Nova Movimentação</a>
-      <a class="btn btn-success btn-sm" routerLink="/correntistas">Correntistas</a>
-    </div>
+      <div class="d-grid gap-2 d-md-flex"> <!-- deixa um espaço entre os botões -->
+        <a class="btn btn-outline-primary btn-sm" routerLink="/movimentacao-new">Nova Movimentação</a>
+        <a class="btn btn-outline-primary btn-sm" routerLink="/correntistas">Correntistas</a></div>
+      </div>
     <table class="table table-striped">
       <thead>
         <tr>

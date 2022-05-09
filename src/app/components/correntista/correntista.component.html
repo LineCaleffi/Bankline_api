@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-6">Correntistas</h1>
+    <p class="lead-1">Cadastro de correntista</p>
+    <hr class="my-2">
+  </div>
+  <div class="row g-2">
+    <div class="col-md-3">
+      <input  class="form-control" id="iCpf" [(ngModel)]="cpf"  placeholder="CPF">
+    </div>
+    <div class="col-5">
+      <input type="text"  class="form-control" id="iNome" [(ngModel)]="nome" placeholder="Nome do Correntista">
+    </div>
+    <div class="col-3">
+    <div class="d-grid gap-2 d-md-flex "> <!-- deixa espaço entre os botões -->
+        <button class="btn btn-outline-primary me-md-2" type="button" (click)="save()" >Gravar</button>
+        <a routerLink="/movimentacao" class="btn btn-outline-danger" >Voltar</a>
+      </div>
+    </div>
+  </div>
+  <p></p>
+
+  <!-- Mostra todas as contas dos correntistas salvos -->
+  <div *ngFor="let item of correntistas; index as i" class="card" style="width: 18rem;">
+    <!-- CARD-BODY >>> é um texto dentro de um corpo de card -->
+    <div class="card-body">
+
+      <!-- Titulo do card, no caso o nome do correntista-->
+      <h5 class="card-title">{{item.nome}}</h5>
+
+      <!-- Texto que será mostrado no card:
+        no caso: mostra o numero da conta do correntista -->
+        <p class="card-text">Conta N° {{item.conta.numero}}</p>
+
+        <!-- Texto que será mostrado no card:
+        no caso: mostra o saldo da conta dos correntistas na moeda do Brasil -->
+      <p class="card-text">Saldo {{item.conta.saldo | currency:'BRL'}}</p>
+    </div>
+  </div>
+</div>
+
+    <!--  CARD :
+        https://getbootstrap.com/docs/4.0/components/card/
+        É um conteiner de conteúdo flexível e entensível
+    -->
